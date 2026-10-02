@@ -1,5 +1,7 @@
 ### Bubble Sort
 
+---
+
 - O Bubble Sort é um algoritmo de ordenação simples que organiza os elementos de uma lista comparando valores que estão lado a lado. Quando estão na ordem errada, eles são trocados. Esse processo continua até que toda a lista esteja organizada. A cada passagem, o maior elemento que ainda não está na posição correta vai sendo levado para o final da lista.
 - **Complexidade:**
   - Melhor caso: O(n) — acontece quando os elementos já estão ordenados;
@@ -51,6 +53,8 @@
 
 ### Experimento de Ordenação
 
+---
+
 a) Qual algoritmo realizou menos operações para 10 elementos?
 * O Quick Sort realizou menos operações. Foram 25 comparações e 10 movimentações
 
@@ -71,5 +75,29 @@ Em listas pequenas e situações em que a simplicidade do algoritmo é mais impo
 
 g) Em qual situação você escolheria Quick Sort?
 * Para listas maiores, pois ele geralmente apresenta um número menor de operações e melhor desempenho médio em comparação com o Bubble Sort
+  
+---
 
-## INVESTIGAÇÃO DE BUSCA EM MATRIZES
+## Investigação de busca em matrizes
+
+---
+
+a) Por que encontrar um elemento no início exige menos operações?
+
+* Porque a busca sequencial começa pela primeira posição da matriz. Se o valor estiver no início, ele será encontrado logo na primeira comparação.
+
+b) O que acontece quando o elemento procurado não existe?
+
+* O algoritmo percorre todos os elementos da matriz, fazendo uma comparação com cada um. Ao chegar ao final, informa que o valor não foi encontrado.
+
+c) Qual é o pior caso da busca sequencial?
+
+* O pior caso acontece quando o elemento está na última posição ou quando o elemento não existe. Nesse caso, são necessárias m × n comparações
+
+d) Como o aumento das dimensões da matriz influencia a quantidade de operações?
+
+* Quanto maior a matriz, mais elementos precisam ser analisados, então se você multiplicar a quantidade de células por 100, no pior caso de comparações também sera multiplicado por 100.
+* 
+e) Qual a complexidade da busca sequencial em uma matriz com m linhas e n colunas?
+
+* A complexidade de tempo é O(m × n), é a quantidade de colunas ,pois o algoritmo percorre todas as linhas e colunas. 
