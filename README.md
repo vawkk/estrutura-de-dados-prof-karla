@@ -101,3 +101,24 @@ d) Como o aumento das dimensões da matriz influencia a quantidade de operaçõe
 e) Qual a complexidade da busca sequencial em uma matriz com m linhas e n colunas?
 
 * A complexidade de tempo é O(m × n), é a quantidade de colunas ,pois o algoritmo percorre todas as linhas e colunas. 
+
+---
+
+## HANDS ON 1: INVESTIGAÇÃO DO ARRAY
+
+A complexidade de tempo do algoritmo é **linear, representada por O(n)**, onde **n** é o tamanho do array. Isso acontece porque são utilizados apenas laços simples que percorrem a lista de forma sequencial — primeiro para mostrar os elementos, depois para calcular a média e identificar o maior e o menor valor e, por fim, para contar os valores acima da média. Mesmo havendo vários `for`, eles não ficam aninhados. Dessa forma, se o array aumentar, a quantidade de operações também aumentará aproximadamente na mesma proporção do número de elementos. A complexidade de espaço é **O(1)**, pois são utilizadas apenas algumas variáveis auxiliares, sem criar estruturas adicionais que cresçam de acordo com o tamanho do array.
+
+---
+
+## HANDS ON 2: MATRIZ APLICADA – MONITORAMENTO DE SENSORES
+
+---
+
+a) Por que são necessários loops aninhados;  
+* Como a matriz é uma estrutura bidimensional, são necessários dois laços para percorrer todos os seus elementos. O laço externo percorre as linhas, representando os 5 sensores, enquanto o laço interno percorre as 24 colunas, correspondentes às horas do dia.
+b) Qual o papel dos índices [ i ][ j ];  
+* Funcionam como coordenadas dentro da matriz, sendo [i] responsável por indicar a linha, ou seja, o sensor, e [j] responsável por indicar a coluna, ou seja, o horário da medição.
+c) Quantas posições da matriz são percorridas;  
+* São percorridas 120 posições, pois a matriz possui 5 sensores e 24 medições por sensor: 5 × 24 = 120 medições.
+d) Qual a relação entre o número de linhas, colunas e quantidade de operações.  
+* A relação é multiplicativa: Total de iterações = Linhas × Colunas. Com 5 linhas e 24 colunas, o corpo do laço interno é executado 5 × 24 = 120 vezes. Portanto, se o número de linhas ou colunas aumentar, a quantidade de operações também aumentará proporcionalmente ao produto das duas dimensões, resultando em uma complexidade O(L × C).
