@@ -1,7 +1,7 @@
 import random
 
-#BUBBLE SORT
 
+# BUBBLE SORT
 def bubble_sort(lista):
     comparacoes = 0
     trocas = 0
@@ -11,75 +11,90 @@ def bubble_sort(lista):
     for i in range(n):
         trocou = False
 
+# Compara os elementos vizinhos da lista
+
         for j in range(0, n - 1 - i):
             comparacoes += 1
 
+# Se o elemento atual for maior que o próximo,
+ # eles trocam de posição
+
             if lista[j] > lista[j + 1]:
                 lista[j], lista[j + 1] = lista[j + 1], lista[j]
-
                 trocas += 1
                 trocou = True
 
-        #Se não houve troca, o array já está ordenado
+# Se não houve nenhuma troca, a lista já está ordenada
+
         if not trocou:
             break
 
     return comparacoes, trocas
 
-#QUICK SORT
 
+# QUICK SORT
 def quick_sort(lista):
     comparacoes = 0
     movimentacoes = 0
 
     def ordenar(inicio, fim):
-
         nonlocal comparacoes, movimentacoes
+
+# Para quando não houver mais elementos para dividir
 
         if inicio >= fim:
             return
 
-        #Escolhe o último elemento como pivô
-        pivo = lista[fim]
+# O último elemento será usado como pivô
 
-        i = inicio
+        pivo = lista[fim]
+        i = inicio - 1
+
+# Percorre os elementos comparando com o pivô
 
         for j in range(inicio, fim):
             comparacoes += 1
 
             if lista[j] <= pivo:
+                i += 1
+
+# Faz a troca dos elementos quando necessario
 
                 if i != j:
                     lista[i], lista[j] = lista[j], lista[i]
                     movimentacoes += 1
 
-                i += 1
+# Coloca o pivô na posição correta
 
-        # Coloca o pivô na posição correta
-        if i != fim:
-            lista[i], lista[fim] = lista[fim], lista[i]
+        if i + 1 != fim:
+            lista[i + 1], lista[fim] = lista[fim], lista[i + 1]
             movimentacoes += 1
 
-        ordenar(inicio, i - 1)
-        ordenar(i + 1, fim)
+        posicao_pivo = i + 1
+
+# Ordena a parte esquerda da lista
+
+        ordenar(inicio, posicao_pivo - 1)
+        ordenar(posicao_pivo + 1, fim)
 
     ordenar(0, len(lista) - 1)
 
     return comparacoes, movimentacoes
 
-#Testes
+# Testados arrays
 
 tamanhos = [10, 20, 1000]
 
-print("RESULTADOS DOS TESTES")
-print("-" * 75)
+print("=" * 75)
+print("COMPARAÇÃO ENTRE BUBBLE SORT E QUICK SORT")
+print("=" * 75)
 
 print(
-    f"{'Tamanho':<10}"
+    f"{'Tamanho':<12}"
     f"{'Bubble Comp.':<18}"
     f"{'Bubble Trocas':<18}"
     f"{'Quick Comp.':<18}"
-    f"{'Quick Mov.':<15}"
+    f"{'Quick Mov.':<18}"
 )
 
 print("-" * 75)
@@ -87,23 +102,27 @@ print("-" * 75)
 
 for tamanho in tamanhos:
 
-    #Cria os dados
-    dados = [random.randint(1, 10000) for _ in range(tamanho)]
+    # Gera os dados originais
+    lista_original = [random.randint(1, 10000) for _ in range(tamanho)]
 
-    #Faz duas cópias dos mesmos dados
-    lista_bubble = dados.copy()
-    lista_quick = dados.copy()
+    # Cria uma cópia dos mesmos dados para cada algoritmo
+    lista_bubble = lista_original.copy()
+    lista_quick = lista_original.copy()
 
-    #Bubble Sort
-    comp_bubble, trocas_bubble = bubble_sort(lista_bubble)
+    # Executa Bubble Sort
+    bubble_comparacoes, bubble_trocas = bubble_sort(lista_bubble)
 
-    #Quick Sort
-    comp_quick, mov_quick = quick_sort(lista_quick)
+    # Executa Quick Sort
+    quick_comparacoes, quick_movimentacoes = quick_sort(lista_quick)
 
+    # Mostra os resultados
     print(
-        f"{tamanho:<10}"
-        f"{comp_bubble:<18}"
-        f"{trocas_bubble:<18}"
-        f"{comp_quick:<18}"
-        f"{mov_quick:<15}"
+        f"{tamanho:<12}"
+        f"{bubble_comparacoes:<18}"
+        f"{bubble_trocas:<18}"
+        f"{quick_comparacoes:<18}"
+        f"{quick_movimentacoes:<18}"
     )
+
+
+print("-" * 75)
