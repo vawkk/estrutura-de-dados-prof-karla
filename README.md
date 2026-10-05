@@ -114,11 +114,36 @@ A complexidade de tempo do algoritmo é **linear, representada por O(n)**, onde 
 
 ---
 
-a) Por que são necessários loops aninhados;  
+a) Por que são necessários loops aninhados;
+
 * Como a matriz é uma estrutura bidimensional, são necessários dois laços para percorrer todos os seus elementos. O laço externo percorre as linhas, representando os 5 sensores, enquanto o laço interno percorre as 24 colunas, correspondentes às horas do dia.
+
 b) Qual o papel dos índices [ i ][ j ];  
+
 * Funcionam como coordenadas dentro da matriz, sendo [i] responsável por indicar a linha, ou seja, o sensor, e [j] responsável por indicar a coluna, ou seja, o horário da medição.
+
 c) Quantas posições da matriz são percorridas;  
+
 * São percorridas 120 posições, pois a matriz possui 5 sensores e 24 medições por sensor: 5 × 24 = 120 medições.
+
 d) Qual a relação entre o número de linhas, colunas e quantidade de operações.  
+
 * A relação é multiplicativa: Total de iterações = Linhas × Colunas. Com 5 linhas e 24 colunas, o corpo do laço interno é executado 5 × 24 = 120 vezes. Portanto, se o número de linhas ou colunas aumentar, a quantidade de operações também aumentará proporcionalmente ao produto das duas dimensões, resultando em uma complexidade O(L × C).
+
+---
+
+##Conclusão
+
+---
+
+1. O aumento do tamanho da estrutura de dados influencia a quantidade de operações?
+
+* Sim. Quanto maior a quantidade de elementos (n), maior tende a ser a quantidade de operações realizadas para processar, buscar ou ordenar os dados. Nos experimentos, foi possível observar que estruturas maiores exigem mais comparações, trocas e percursos para concluir o processamento.
+
+2. Bubble Sort e Quick Sort crescem da mesma maneira quando o número de elementos aumenta?
+
+* Não. Eles possuem taxas de crescimento diferentes. O Bubble Sort apresenta crescimento quadrático O(n²), fazendo com que a quantidade de operações aumente rapidamente conforme o tamanho da lista cresce. Já o Quick Sort possui crescimento médio O(n log n), sendo mais eficiente para grandes quantidades de dados. Por isso, quanto maior a lista, maior tende a ser a diferença de desempenho entre os dois.
+
+3. Por que analisar somente o resultado final da ordenação não é suficiente para comparar algoritmos?
+
+* Porque os dois algoritmos podem produzir o mesmo resultado final, ou seja, a lista ordenada, mas podem utilizar quantidades diferentes de recursos para chegar até ele. Por isso, é importante analisar fatores como tempo de execução, quantidade de comparações, trocas ou movimentações, uso de memória e estabilidade, permitindo identificar qual algoritmo apresenta melhor desempenho para cada situação.
