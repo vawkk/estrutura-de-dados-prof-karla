@@ -1,3 +1,5 @@
+## BUBBLE SORT, QUICK SORT, INSERT SORT E SELECT SORT
+
 ### Bubble Sort
 
 ---
@@ -57,19 +59,96 @@
   - Adequado: Para trabalhar com grandes quantidades de dados, principalmente quando é necessário obter um bom desempenho médio.
   - Não recomendado: Quando é obrigatório manter a estabilidade da ordenação, em situações de tempo real que não toleram o pior caso ou quando os dados estão armazenados em listas encadeadas.
  
+---
+
+### Insert sort
+
+---
+
+- Insert sort percorre a lista da esquerda para a direita e, a cada etapa, pega um elemento e o coloca na posição correta dentro da parte que já está ordenada.
+
+# Complexidade:
+
+- Melhor caso: O(n)
+
+- Caso médio: O(n²)
+
+- Pior caso: O(n²)
+
+# Vantagens:
+
+- Apresenta ótimo desempenho em listas pequenas ou que já estejam próximas da ordem correta.
+
+- É considerado um algoritmo estável, pois mantém a ordem relativa de elementos iguais.
+
+- Pode trabalhar com dados conforme eles vão sendo recebidos, sendo considerado um algoritmo online.
+
+- Não necessita de espaço adicional significativo para realizar a ordenação.
+
+# Limitações:
+
+- Seu desempenho é baixo quando utilizado em listas muito grandes, principalmente quando estão desordenadas.
+
+- Pode realizar muitos deslocamentos quando elementos menores precisam percorrer várias posições até encontrar seu lugar correto.
+
+# Situações de uso:
+
+- Adequado em pequenas listas, conjuntos de dados quase ordenados ou situações em que os elementos são recebidos gradualmente.
+
+- Porem não é recomendado para Grandes quantidades de dados desordenados ou organizados em ordem inversa.
+
+---
+
+### select sort
+
+---
+
+- O Selection Sort organiza a lista procurando, a cada etapa, o menor elemento que ainda não está na posição correta. Depois de encontrar esse valor, ele é colocado no início da parte que ainda não foi ordenada. O processo continua até que todos os elementos estejam organizados.
+
+#  Complexidade:
+
+- Melhor caso: O(n²)
+
+- Caso médio: O(n²)
+
+- Pior caso: O(n²)
+
+# Vantagens:
+
+- Possui uma lógica simples, sendo fácil de compreender e implementar.
+
+- Faz poucas trocas de elementos, o que pode ser vantajoso quando as operações de escrita na memória possuem um custo elevado.
+
+- Não necessita de espaço extra significativo para funcionar.
+
+# Limitações:
+
+-  Baixo desempenho quando utilizado em listas grandes.
+
+- Continua realizando comparações mesmo quando a lista já está parcialmente ou completamente organizada.
+
+- Na sua forma tradicional, não mantém a estabilidade dos elementos iguais.
+
+# Situações de uso:
+
+- Adequado para Pequenos conjuntos de dados, principalmente quando é importante reduzir a quantidade de escritas ou trocas na memória.
+
+- Não é recomendado em listas médias ou grandes e situações em que o tempo total de execução precisa ser otimizado.
+
+---
 
 ## Tabela comparativa
 
-| Característica | Bubble Sort | Quick Sort 
-| :--- | :--- | :--- 
-| **Princípio de funcionamento** | Compara elementos vizinhos e troca quando estão fora de ordem | Escolhe um pivô e divide o array em partes menores 
-| **Melhor caso** | O(n) | O(n log n) 
-| **Caso médio** | O(n²) | O(n log n) 
-| **Pior caso** | O(n²) | O(n²) 
-| **Uso de memória** | O(1) | O(log n) 
-| **Vantagem principal** | Simples de entender e implementar | Muito mais eficiente para grandes quantidades de dados 
-| **Limitação principal** | Fica muito lento com muitos elementos | Pode chegar a O(n²) dependendo da escolha do pivô 
-| **Aplicação recomendada** | Arrays pequenos e estudos didáticos | Arrays grandes e situações em que é necessário desempenho
+| Característica | Bubble Sort | Quick Sort | Inset Sort | Select Sort
+| :--- | :--- | :--- | :--- | :---
+| **Princípio de funcionamento** | Compara elementos vizinhos e troca quando estão fora de ordem | Escolhe um pivô e divide o array em partes menores | Forma a parte ordenada gradualmente, retirando um elemento por vez e colocando-o na posição adequada entre os elementos | Procura o menor elemento da parte ainda não ordenada e troca esse valor com o primeiro elemento 
+| **Melhor caso** | O(n) | O(n log n) | O(n) | O(n²)
+| **Caso médio** | O(n²) | O(n log n) | O(n²) | O(n²)
+| **Pior caso** | O(n²) | O(n²) | O(n²) | O(n²)
+| **Uso de memória** | O(1) | O(log n) | O(1) | O(1)
+| **Vantagem principal** | Simples de entender e implementar | Muito mais eficiente para grandes quantidades de dados | É muito eficiente em listas pequenas ou quase ordenadas e também é estável. | Diminui a quantidade de trocas realizadas 
+| **Limitação principal** | Fica muito lento com muitos elementos | Pode chegar a O(n²) dependendo da escolha do pivô | lento em listas grandes e em situações com muitos elementos fora de ordem | Mantém O(n²) comparações mesmo quando os elementos já estão organizados
+| **Aplicação recomendada** | Arrays pequenos e estudos didáticos | Arrays grandes e situações em que é necessário desempenho | Pequenas coleções, listas quase ordenadas ou situações em que novos dados são adicionados continuamente | Situações em que reduzir a quantidade de trocas ou escritas na memória seja mais importante
 
 
 ---
@@ -80,7 +159,7 @@
 
 a) Qual algoritmo realizou menos operações para 10 elementos?
 
-* O Quick Sort realizou menos operações. Foram 25 comparações e 10 movimentações
+* O Insertion Sort, com 28 comparações
   
 b) O comportamento permaneceu igual para 20 elementos?
 
